@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import Hero from '../components/Hero';
 import CarCard from '../components/CarCard';
 import FAQ from '../components/FAQ';
-import { MOCK_CARS } from '../constants';
+import { MOCK_CARS, formatNumber } from '../constants';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Filter, X, ChevronDown, ChevronUp } from 'lucide-react';
 
@@ -12,6 +12,7 @@ const Home: React.FC = () => {
   const [selectedTransmission, setSelectedTransmission] = useState('Todas');
   const [selectedFuel, setSelectedFuel] = useState('Todas');
   const [maxPrice, setMaxPrice] = useState<number>(100000);
+  const [maxKm, setMaxKm] = useState<number>(200000);
   const [minYear, setMinYear] = useState<number>(2010);
   const [showFilters, setShowFilters] = useState(false);
 
@@ -38,11 +39,12 @@ const Home: React.FC = () => {
       const matchesTransmission = selectedTransmission === 'Todas' || car.transmission === selectedTransmission;
       const matchesFuel = selectedFuel === 'Todas' || car.fuel === selectedFuel;
       const matchesPrice = car.price <= maxPrice;
+      const matchesKm = car.km <= maxKm;
       const matchesYear = car.year >= minYear;
       
-      return matchesSearch && matchesMake && matchesTransmission && matchesFuel && matchesPrice && matchesYear;
+      return matchesSearch && matchesMake && matchesTransmission && matchesFuel && matchesPrice && matchesKm && matchesYear;
     });
-  }, [searchTerm, selectedMake, selectedTransmission, selectedFuel, maxPrice, minYear]);
+  }, [searchTerm, selectedMake, selectedTransmission, selectedFuel, maxPrice, maxKm, minYear]);
 
   const activeFiltersCount = useMemo(() => {
     let count = 0;
@@ -50,9 +52,10 @@ const Home: React.FC = () => {
     if (selectedTransmission !== 'Todas') count++;
     if (selectedFuel !== 'Todas') count++;
     if (maxPrice < 100000) count++;
+    if (maxKm < 200000) count++;
     if (minYear > 2010) count++;
     return count;
-  }, [selectedMake, selectedTransmission, selectedFuel, maxPrice, minYear]);
+  }, [selectedMake, selectedTransmission, selectedFuel, maxPrice, maxKm, minYear]);
 
   const clearFilters = () => {
     setSearchTerm('');
@@ -60,6 +63,7 @@ const Home: React.FC = () => {
     setSelectedTransmission('Todas');
     setSelectedFuel('Todas');
     setMaxPrice(100000);
+    setMaxKm(200000);
     setMinYear(2010);
   };
 
@@ -126,11 +130,11 @@ const Home: React.FC = () => {
                   transition={{ duration: 0.2 }}
                   className="overflow-hidden"
                 >
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-3 pb-2 border-t border-zinc-50 mt-2">
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 pt-4 pb-2 border-t border-zinc-50 mt-2">
                     <div className="space-y-1">
                       <label className="text-[9px] font-bold text-zinc-400 uppercase tracking-tighter ml-1">Marca</label>
                       <select 
-                        className="w-full px-2 py-1 bg-zinc-50 border border-zinc-200 rounded-lg text-zinc-900 text-xs cursor-pointer appearance-none"
+                        className="w-full px-2 py-1.5 bg-zinc-50 border border-zinc-200 rounded-lg text-zinc-900 text-xs cursor-pointer appearance-none"
                         value={selectedMake}
                         onChange={(e) => setSelectedMake(e.target.value)}
                       >
@@ -143,7 +147,7 @@ const Home: React.FC = () => {
                     <div className="space-y-1">
                       <label className="text-[9px] font-bold text-zinc-400 uppercase tracking-tighter ml-1">Cambio</label>
                       <select 
-                        className="w-full px-2 py-1 bg-zinc-50 border border-zinc-200 rounded-lg text-zinc-900 text-xs cursor-pointer appearance-none"
+                        className="w-full px-2 py-1.5 bg-zinc-50 border border-zinc-200 rounded-lg text-zinc-900 text-xs cursor-pointer appearance-none"
                         value={selectedTransmission}
                         onChange={(e) => setSelectedTransmission(e.target.value)}
                       >
@@ -156,7 +160,7 @@ const Home: React.FC = () => {
                     <div className="space-y-1">
                       <label className="text-[9px] font-bold text-zinc-400 uppercase tracking-tighter ml-1">Combustible</label>
                       <select 
-                        className="w-full px-2 py-1 bg-zinc-50 border border-zinc-200 rounded-lg text-zinc-900 text-xs cursor-pointer appearance-none"
+                        className="w-full px-2 py-1.5 bg-zinc-50 border border-zinc-200 rounded-lg text-zinc-900 text-xs cursor-pointer appearance-none"
                         value={selectedFuel}
                         onChange={(e) => setSelectedFuel(e.target.value)}
                       >
@@ -182,12 +186,28 @@ const Home: React.FC = () => {
                       />
                     </div>
 
-                    <div className="flex gap-2 items-end col-span-full justify-end">
+                    <div className="space-y-1">
+                      <div className="flex justify-between items-center px-1">
+                        <label className="text-[9px] font-bold text-zinc-400 uppercase tracking-tighter">Km máx.</label>
+                        <span className="text-[9px] font-bold text-black">{formatNumber(maxKm)} km</span>
+                      </div>
+                      <input 
+                        type="range"
+                        min="0"
+                        max="200000"
+                        step="5000"
+                        className="w-full h-1 bg-zinc-100 rounded-lg appearance-none cursor-pointer accent-black"
+                        value={maxKm}
+                        onChange={(e) => setMaxKm(parseInt(e.target.value))}
+                      />
+                    </div>
+
+                    <div className="flex gap-2 items-end col-span-full justify-end pt-2">
                       <button 
                         onClick={clearFilters}
                         className="px-2 py-1 text-zinc-400 hover:text-black transition-all text-[9px] font-bold flex items-center gap-1 cursor-pointer"
                       >
-                        <X size={10} /> Limpiar
+                        <X size={10} /> Limpiar filtros
                       </button>
                     </div>
                   </div>
@@ -212,7 +232,7 @@ const Home: React.FC = () => {
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              key={`${searchTerm}-${selectedMake}-${selectedTransmission}-${selectedFuel}-${maxPrice}-${minYear}`}
+              key={`${searchTerm}-${selectedMake}-${selectedTransmission}-${selectedFuel}-${maxPrice}-${maxKm}-${minYear}`}
             >
               {filteredCars.map((car, index) => (
                 <CarCard key={car.id} car={car} index={index} />
