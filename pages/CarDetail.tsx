@@ -106,15 +106,16 @@ const CarDetail: React.FC = () => {
               </div>
             </div>
 
-            {/* Thumbnails */}
-            <div className="grid grid-cols-3 gap-4">
+            {/* Thumbnails - Horizontally Scrollable */}
+            <div className="flex overflow-x-auto gap-4 py-2 no-scrollbar">
               {car.images.map((img, idx) => (
-                <ThumbnailButton 
-                  key={`${car.id}-thumb-${idx}`}
-                  src={img} 
-                  isActive={idx === currentImageIndex}
-                  onClick={() => setCurrentImageIndex(idx)}
-                />
+                <div key={`${car.id}-thumb-wrapper-${idx}`} className="flex-shrink-0 w-1/4 md:w-1/5">
+                  <ThumbnailButton 
+                    src={img} 
+                    isActive={idx === currentImageIndex}
+                    onClick={() => setCurrentImageIndex(idx)}
+                  />
+                </div>
               ))}
             </div>
           </div>
@@ -226,7 +227,7 @@ const ThumbnailButton: React.FC<{ src: string; isActive: boolean; onClick: () =>
   return (
     <button
       onClick={onClick}
-      className={`relative aspect-video rounded-lg overflow-hidden border-2 transition-all cursor-pointer bg-zinc-200 ${
+      className={`relative w-full aspect-video rounded-lg overflow-hidden border-2 transition-all cursor-pointer bg-zinc-200 ${
         isActive ? 'border-black opacity-100' : 'border-transparent opacity-70 hover:opacity-100'
       }`}
     >

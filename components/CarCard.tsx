@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+// FIX: Import Variants type from framer-motion
+import { motion, Variants } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Fuel, Gauge, Calendar, ArrowRight } from 'lucide-react';
 import { Car } from '../types';
@@ -24,7 +25,8 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
   }, []);
 
   // Animación suave de entrada solo cuando aparece en el viewport
-  const cardVariants = {
+  // FIX: Explicitly type cardVariants with Variants to resolve TypeScript error with the 'ease' property.
+  const cardVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
       opacity: 1, 

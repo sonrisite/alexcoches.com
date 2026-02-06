@@ -31,13 +31,13 @@ const Footer: React.FC = () => {
         {/* Contact Info */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-6 w-full max-w-4xl mb-16">
           <a 
-            href="tel:+34600123456" 
+            href="tel:+34647606425" 
             className="group flex-1 w-full md:w-auto flex items-center justify-center gap-3 text-zinc-400 hover:text-white transition-all duration-300 px-8 py-4 rounded-2xl bg-zinc-900/50 hover:bg-zinc-900 border border-zinc-800 hover:border-zinc-700"
           >
             <div className="p-2 bg-black rounded-full border border-zinc-800 group-hover:border-zinc-600 transition-colors">
               <Phone size={20} className="text-zinc-300 group-hover:text-white" />
             </div>
-            <span className="font-medium text-lg">+34 600 123 456</span>
+            <span className="font-medium text-lg">+34 647 606 425</span>
           </a>
 
           <a 

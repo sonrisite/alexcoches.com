@@ -60,20 +60,20 @@ const FAQ: React.FC = () => {
 
   const faqs = [
     {
-      question: "¿Qué garantía tienen vuestros coches?",
-      answer: "Todos nuestros vehículos incluyen una garantía mecánica completa de un mínimo de 12 meses. Además, cada coche pasa por una revisión de más de 100 puntos críticos antes de su entrega para tu total tranquilidad."
+      question: "¿Cuántos dueños ha tenido el coche?",
+      answer: "Nuestra selección de vehículos destaca por su trazabilidad. La mayoría de nuestros coches han tenido un solo propietario, y como máximo dos, lo que garantiza un mejor cuidado y conocimiento de su historial."
     },
     {
-      question: "¿Aceptáis mi coche actual como parte de pago?",
-      answer: "¡Por supuesto! Tasamos tu vehículo en el acto de forma gratuita. El valor obtenido se descontará directamente del precio de tu nuevo coche, facilitando así el cambio de vehículo."
+      question: "¿El coche tiene garantía?",
+      answer: "Sí, por ley todos nuestros vehículos cuentan con un año de garantía incluido. Además, para tu total tranquilidad, ofrecemos la posibilidad de ampliarla de forma personalizada."
     },
     {
-      question: "¿Realizáis envíos a toda España?",
-      answer: "Sí, ofrecemos servicio de entrega a domicilio en toda la península. Consulta con nuestro equipo las condiciones y plazos según tu ubicación."
+      question: "¿En qué estado se entregan los coches?",
+      answer: "La seguridad es nuestra prioridad. Cada unidad se entrega tras superar una exhaustiva revisión mecánica donde realizamos una puesta a punto completa para que no tengas que preocuparte por nada."
     },
     {
-      question: "¿Los kilómetros de los coches son reales?",
-      answer: "Absolutamente. Certificamos por contrato el kilometraje y la ausencia de daños estructurales en todos nuestros vehículos. La transparencia es la base de AlexCoches."
+      question: "¿Ofrecéis opciones de financiación?",
+      answer: "¡Por supuesto! Queremos facilitarte la compra, por lo que existe la posibilidad de financiar el vehículo con condiciones adaptadas a tus necesidades. Consulta con nosotros para obtener un estudio a tu medida."
     }
   ];
 
