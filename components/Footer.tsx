@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, Mail } from 'lucide-react';
+import { CLOUDINARY_BASE_URL } from '../constants';
 
 const Footer: React.FC = () => {
   return (
@@ -9,7 +10,7 @@ const Footer: React.FC = () => {
         {/* Brand Logo */}
         <div className="mb-10 transform hover:scale-105 transition-transform duration-500">
           <img 
-            src="/logo.png" 
+            src={`${CLOUDINARY_BASE_URL}logo.png`} 
             alt="AlexCoches" 
             className="h-24 w-auto object-contain"
           />

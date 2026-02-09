@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Phone, MessageCircle, Calendar, Gauge, Fuel, Zap, Settings, ArrowLeft } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Phone, MessageCircle, Calendar, Gauge, Fuel, Zap, Settings, ArrowLeft, ZoomIn } from 'lucide-react';
 import { MOCK_CARS, formatPrice, formatNumber, COMPANY_PHONE, COMPANY_WHATSAPP } from '../constants';
 import CarCard from '../components/CarCard';
+import Lightbox from '../components/Lightbox';
 
 const CarDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   const car = MOCK_CARS.find(c => c.id === id);
   
@@ -49,6 +51,16 @@ const CarDetail: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white pt-20 pb-12">
+      <AnimatePresence>
+        {isLightboxOpen && car && (
+          <Lightbox 
+            images={car.images}
+            startIndex={currentImageIndex}
+            onClose={() => setIsLightboxOpen(false)}
+          />
+        )}
+      </AnimatePresence>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Breadcrumb / Back */}
@@ -64,7 +76,11 @@ const CarDetail: React.FC = () => {
           {/* Left Column: Gallery */}
           <div className="space-y-4">
             {/* Main Image Container */}
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-200 shadow-xl border border-zinc-200">
+            <div 
+              className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-200 shadow-xl border border-zinc-200 cursor-pointer"
+              onClick={() => setIsLightboxOpen(true)}
+              aria-label="Ver imagen en pantalla completa"
+            >
               <AnimatePresence mode="popLayout">
                 <motion.img
                   key={currentImageIndex}
@@ -77,6 +93,11 @@ const CarDetail: React.FC = () => {
                   transition={{ duration: 0.4, ease: "easeOut" }}
                 />
               </AnimatePresence>
+
+              {/* Zoom Icon Overlay */}
+              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                <ZoomIn className="text-white" size={48} />
+              </div>
               
               {/* Controls */}
               <button 
@@ -97,7 +118,7 @@ const CarDetail: React.FC = () => {
                 {car.images.map((_, idx) => (
                   <button
                     key={idx}
-                    onClick={() => setCurrentImageIndex(idx)}
+                    onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(idx); }}
                     className={`h-1.5 rounded-full transition-all shadow-sm cursor-pointer ${
                       idx === currentImageIndex ? 'bg-white w-8' : 'bg-white/50 hover:bg-white/80 w-4'
                     }`}
@@ -126,8 +147,15 @@ const CarDetail: React.FC = () => {
               <span className="text-zinc-600 font-bold tracking-wider text-sm border border-zinc-300 px-2 py-1 rounded uppercase">{car.make}</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-extrabold text-zinc-900 mb-4">{car.model}</h1>
-            <div className="text-3xl font-bold text-zinc-900 mb-8 flex items-baseline gap-2">
-              {formatPrice(car.price)}
+            <div className="mb-8 flex items-baseline gap-3">
+              {car.offerPrice ? (
+                <>
+                  <span className="text-3xl font-bold text-red-600">{formatPrice(car.offerPrice)}</span>
+                  <span className="text-2xl text-zinc-400 font-normal line-through">{formatPrice(car.price)}</span>
+                </>
+              ) : (
+                <span className="text-3xl font-bold text-zinc-900">{formatPrice(car.price)}</span>
+              )}
               <span className="text-lg text-zinc-500 font-normal">Contado</span>
             </div>
 
@@ -177,7 +205,7 @@ const CarDetail: React.FC = () => {
                 </div>
               </div>
               <div className="bg-zinc-50 p-4 rounded-xl border border-zinc-200 flex items-center space-x-3 hover:border-zinc-300 transition-colors">
-                <div className="w-5 h-5 rounded-full border border-zinc-300 shadow-sm" style={{ backgroundColor: car.color === 'Blanco' ? '#fff' : car.color === 'Negro' ? '#000' : '#888' }}></div>
+                <div className="w-5 h-5 rounded-full border border-zinc-300 shadow-sm" style={{ backgroundColor: car.color === 'Blanco' ? '#fff' : car.color === 'Negro' ? '#000' : car.color === 'Rojo' ? '#c00' : '#888' }}></div>
                 <div>
                   <p className="text-xs text-zinc-500 uppercase font-semibold">Color</p>
                   <p className="font-bold text-zinc-900">{car.color}</p>

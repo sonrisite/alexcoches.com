@@ -6,6 +6,7 @@ export interface Car {
   model: string;
   year: number;
   price: number;
+  offerPrice?: number;
   km: number;
   fuel: 'Gasolina' | 'Diesel' | 'Híbrido' | 'Eléctrico';
   transmission: 'Automática' | 'Manual';

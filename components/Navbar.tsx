@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { CLOUDINARY_BASE_URL } from '../constants';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,7 +46,7 @@ const Navbar: React.FC = () => {
             className="flex items-center cursor-pointer"
           >
             <img 
-              src="/logo.png" 
+              src={`${CLOUDINARY_BASE_URL}logo.png`} 
               alt="ALEXCOCHES" 
               className="h-8 md:h-12 w-auto object-contain transition-transform hover:scale-105 active:scale-95"
             />

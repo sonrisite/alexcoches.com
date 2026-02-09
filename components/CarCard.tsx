@@ -68,9 +68,20 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
             
             {/* Price Tag */}
             <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-xl shadow-lg z-10">
-              <span className="block text-xl font-extrabold text-zinc-900 tracking-tight">
-                {formatPrice(car.price)}
-              </span>
+              {car.offerPrice ? (
+                <div className="flex items-baseline gap-2">
+                  <span className="block text-xl font-extrabold text-red-600 tracking-tight">
+                    {formatPrice(car.offerPrice)}
+                  </span>
+                  <span className="block text-sm font-medium text-zinc-400 line-through">
+                    {formatPrice(car.price)}
+                  </span>
+                </div>
+              ) : (
+                <span className="block text-xl font-extrabold text-zinc-900 tracking-tight">
+                  {formatPrice(car.price)}
+                </span>
+              )}
             </div>
 
             {/* Year Tag */}
