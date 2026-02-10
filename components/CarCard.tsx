@@ -11,7 +11,7 @@ interface CarCardProps {
   index: number;
 }
 
-const CarCard: React.FC<CarCardProps> = ({ car }) => {
+const CarCard: React.FC<CarCardProps> = ({ car, index }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -24,14 +24,17 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Animación suave de entrada solo cuando aparece en el viewport
-  // FIX: Explicitly type cardVariants with Variants to resolve TypeScript error with the 'ease' property.
+  // Animación suave y escalonada de entrada solo cuando aparece en el viewport
   const cardVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
       opacity: 1, 
       y: 0, 
-      transition: { duration: 0.4, ease: "easeOut" } 
+      transition: { 
+        duration: 0.5, 
+        ease: "easeOut",
+        delay: (index % 3) * 0.1 
+      } 
     }
   };
 
