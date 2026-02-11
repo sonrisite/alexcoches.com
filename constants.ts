@@ -180,7 +180,7 @@ export const MOCK_CARS: Car[] = [
     make: 'BMW',
     model: 'GS 1200',
     year: 2013,
-    price: 2500,
+    price: 12500,
     km: 92000,
     fuel: 'Gasolina',
     transmission: 'Manual',
