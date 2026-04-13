@@ -15,6 +15,8 @@ export interface Car {
   bodyType: string;
   images: string[];
   description: string;
+  isSold?: boolean;
+  isUnique?: boolean;
 }
 
 export type IconProps = React.SVGProps<SVGSVGElement>;

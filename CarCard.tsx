@@ -91,6 +91,26 @@ const CarCard: React.FC<CarCardProps> = ({ car, index }) => {
             <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] font-black text-white border border-white/10 uppercase tracking-widest">
               {car.year}
             </div>
+
+            {/* Unique Badge */}
+            {car.isUnique && !car.isSold && (
+              <div className="absolute top-4 left-4 bg-indigo-600 px-3 py-1.5 rounded-full text-[10px] font-black text-white shadow-lg uppercase tracking-widest z-10 animate-pulse">
+                Único en España
+              </div>
+            )}
+
+            {/* Sold Badge */}
+            {car.isSold && (
+              <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] flex items-center justify-center z-20">
+                <motion.div 
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  className="bg-red-600 text-white px-6 py-2 rounded-full font-black text-lg uppercase tracking-tighter shadow-2xl border-2 border-white/20 rotate-[-5deg]"
+                >
+                  ¡VENDIDO!
+                </motion.div>
+              </div>
+            )}
           </div>
 
           {/* Content */}
