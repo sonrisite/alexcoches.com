@@ -1,5 +1,5 @@
 import React from 'react';
-npm i framer-motion
+npm i framer-motion;
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
