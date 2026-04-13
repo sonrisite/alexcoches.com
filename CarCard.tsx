@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// FIX: Import Variants type from framer-motion
 import { motion, Variants } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Fuel, Gauge, Calendar, ArrowRight } from 'lucide-react';
@@ -24,7 +23,6 @@ const CarCard: React.FC<CarCardProps> = ({ car, index }) => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Animación suave y escalonada de entrada solo cuando aparece en el viewport
   const cardVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
@@ -49,7 +47,6 @@ const CarCard: React.FC<CarCardProps> = ({ car, index }) => {
       <Link to={`/car/${car.id}`} className="block h-full">
         <motion.div
           className="group relative bg-white rounded-3xl overflow-hidden shadow-sm h-full border border-zinc-100 flex flex-col transition-all duration-300"
-          // Elevación solo en escritorio
           whileHover={!isMobile ? { 
             y: -8, 
             boxShadow: "0 20px 40px -10px rgba(0, 0, 0, 0.1)",
@@ -61,15 +58,14 @@ const CarCard: React.FC<CarCardProps> = ({ car, index }) => {
             <motion.img
               src={car.images[0]}
               alt={`${car.make} ${car.model}`}
-              className={`w-full h-full object-cover transition-opacity duration-500 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-              // Escala solo en escritorio
+              className={`w-full h-full object-cover z-0 transition-opacity duration-500 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
               whileHover={!isMobile ? { scale: 1.08 } : {}}
               transition={{ duration: 0.6 }}
               loading="lazy"
               onLoad={() => setIsLoaded(true)}
             />
             
-            {/* Price Tag */}
+            {/* Price Tag - z-10 */}
             <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-xl shadow-lg z-10">
               {car.offerPrice ? (
                 <div className="flex items-baseline gap-2">
@@ -87,21 +83,21 @@ const CarCard: React.FC<CarCardProps> = ({ car, index }) => {
               )}
             </div>
 
-            {/* Year Tag */}
-            <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] font-black text-white border border-white/10 uppercase tracking-widest z-20">
+            {/* Year Tag - z-10 */}
+            <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] font-black text-white border border-white/10 uppercase tracking-widest z-10">
               {car.year}
             </div>
 
-            {/* Unique Badge Overlay */}
-            {car.isUnique === true && !car.isSold && (
+            {/* Unique Badge Overlay - CAMBIO: Condición más flexible */}
+            {Boolean(car.isUnique) && !car.isSold && (
               <div className="absolute top-4 left-4 bg-indigo-600 px-3 py-1.5 rounded-full text-[10px] font-black text-white shadow-lg uppercase tracking-widest z-20">
                 Único en España
               </div>
             )}
 
-            {/* Sold Badge Overlay */}
-            {car.isSold === true && (
-              <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-30">
+            {/* Sold Badge Overlay - CAMBIO: Condición más flexible y z-index máximo */}
+            {Boolean(car.isSold) && (
+              <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-40">
                 <div className="bg-red-600 text-white px-6 py-2 rounded-full font-black text-xl uppercase tracking-tighter shadow-2xl border-2 border-white/20 transform -rotate-6">
                   ¡VENDIDO!
                 </div>
@@ -109,21 +105,18 @@ const CarCard: React.FC<CarCardProps> = ({ car, index }) => {
             )}
           </div>
 
-          {/* Content */}
+          {/* Resto del contenido (puedes dejarlo como estaba) */}
           <div className="p-5 flex flex-col flex-grow">
             <div className="flex-grow">
               <h3 className="text-xl md:text-2xl font-black text-zinc-900 leading-tight mb-1">
                 {car.model}
               </h3>
-              
               <p className="text-[10px] font-black text-zinc-400 uppercase tracking-widest mb-3">{car.make}</p>
-              
               <p className="text-zinc-500 text-xs md:text-sm mb-5 line-clamp-2 leading-relaxed">
                 {car.description}
               </p>
             </div>
 
-            {/* Specs Grid */}
             <div className="grid grid-cols-3 gap-1 pt-4 border-t border-zinc-50 text-zinc-500 mb-4">
               <div className="flex flex-col items-start">
                 <div className="flex items-center gap-1 mb-0.5">
@@ -148,21 +141,15 @@ const CarCard: React.FC<CarCardProps> = ({ car, index }) => {
               </div>
             </div>
 
-            {/* Button Container - Simplificado para móvil */}
             <div className="h-11 w-full relative overflow-hidden rounded-xl bg-black text-white flex items-center justify-center gap-2 font-bold text-xs transition-colors active:bg-zinc-800 md:bg-zinc-50 md:text-zinc-400 md:font-medium">
-               
-               {/* En escritorio (md) mostramos el efecto de intercambio */}
                <div className="hidden md:flex absolute inset-0 items-center justify-center group-hover:opacity-0 transition-opacity duration-300">
-                  Más información
+                 Más información
                </div>
-
                <div className="hidden md:flex absolute inset-0 bg-black text-white items-center justify-center gap-2 font-bold translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
-                  Ver Detalles <ArrowRight size={14} />
+                 Ver Detalles <ArrowRight size={14} />
                </div>
-
-               {/* En móvil mostramos el estado final directamente para mejor rendimiento */}
                <div className="flex md:hidden items-center justify-center gap-2">
-                  Ver Detalles <ArrowRight size={14} />
+                 Ver Detalles <ArrowRight size={14} />
                </div>
             </div>
           </div>
