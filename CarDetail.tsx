@@ -127,13 +127,13 @@ const CarDetail: React.FC = () => {
               </div>
 
               {/* Sold Badge Overlay */}
-              {car.isSold === true ? (
-                <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] flex items-center justify-center z-30 pointer-events-none">
-                  <div className="bg-red-600 text-white px-8 py-3 rounded-full font-black text-2xl uppercase tracking-tighter shadow-2xl border-2 border-white/20 -rotate-6">
+              {car.isSold === true && (
+                <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-30 pointer-events-none">
+                  <div className="bg-red-600 text-white px-8 py-3 rounded-full font-black text-3xl uppercase tracking-tighter shadow-2xl border-2 border-white/20 transform -rotate-6">
                     ¡VENDIDO!
                   </div>
                 </div>
-              ) : null}
+              )}
             </div>
 
             {/* Thumbnails - Horizontally Scrollable */}
@@ -154,12 +154,6 @@ const CarDetail: React.FC = () => {
           <div>
             <div className="mb-2 flex items-center gap-2 flex-wrap">
               <span className="text-zinc-600 font-bold tracking-wider text-sm border border-zinc-300 px-2 py-1 rounded uppercase">{car.make}</span>
-              {car.isSold === true ? (
-                <span className="bg-red-600 text-white font-black tracking-tighter text-xs px-2 py-1 rounded uppercase">Vendido</span>
-              ) : null}
-              {car.isUnique === true ? (
-                <span className="bg-indigo-600 text-white font-black tracking-tighter text-xs px-2 py-1 rounded uppercase">Único en España</span>
-              ) : null}
             </div>
             <h1 className="text-4xl md:text-5xl font-extrabold text-zinc-900 mb-4">{car.model}</h1>
             
