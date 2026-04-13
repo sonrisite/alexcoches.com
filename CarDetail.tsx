@@ -127,15 +127,21 @@ const CarDetail: React.FC = () => {
               </div>
 
               {/* Sold Badge Overlay */}
-              {car.isSold === true && (
-                <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-30 pointer-events-none">
-                  <div className="bg-red-600 text-white px-8 py-3 rounded-full font-black text-3xl uppercase tracking-tighter shadow-2xl border-2 border-white/20 transform -rotate-6">
-                    ¡VENDIDO!
-                  </div>
-                </div>
-              )}
-            </div>
-
+            {Boolean(car.isSold) && (
+  <div style={{ 
+    position: 'absolute', 
+    inset: 0, 
+    backgroundColor: 'rgba(220, 38, 38, 0.9)', // Rojo fuerte
+    display: 'flex', 
+    alignItems: 'center', 
+    justifyContent: 'center', 
+    zIndex: 999 
+  }}>
+    <span style={{ color: 'white', fontWeight: 'bold', fontSize: '24px' }}>
+      ¡VENDIDO!
+    </span>
+  </div>
+)}
             {/* Thumbnails - Horizontally Scrollable */}
             <div className="flex overflow-x-auto gap-4 py-2 no-scrollbar">
               {car.images.map((img, idx) => (
