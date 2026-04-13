@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-npm i framer-motion
 // FIX: Import Variants type from framer-motion
 import { motion, Variants } from 'framer-motion';
 import { Link } from 'react-router-dom';
