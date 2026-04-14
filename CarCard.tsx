@@ -88,25 +88,24 @@ const CarCard: React.FC<CarCardProps> = ({ car, index }) => {
             </div>
 
             {/* Year Tag */}
-            <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] font-black text-white border border-white/10 uppercase tracking-widest z-20">
+            <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full text-[10px] font-black text-white border border-white/10 uppercase tracking-widest">
               {car.year}
             </div>
 
-            {/* Unique Badge Overlay */}
+            {/* Unique Badge */}
             {car.isUnique && !car.isSold && (
-              <div className="absolute top-4 left-4 bg-indigo-600 px-3 py-1.5 rounded-full text-[10px] font-black text-white shadow-lg uppercase tracking-widest z-20 animate-pulse">
+              <div className="absolute top-4 left-4 bg-indigo-600 px-3 py-1.5 rounded-full text-[10px] font-black text-white shadow-lg uppercase tracking-widest z-10 animate-pulse">
                 Único en España
               </div>
             )}
 
-            {/* Sold Badge Overlay */}
+            {/* Sold Badge */}
             {car.isSold && (
-              <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-30">
+              <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] flex items-center justify-center z-20">
                 <motion.div 
-                  initial={{ scale: 0.5, opacity: 0 }}
+                  initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                  className="bg-red-600 text-white px-6 py-2 rounded-full font-black text-xl uppercase tracking-tighter shadow-2xl border-2 border-white/20 transform -rotate-6"
+                  className="bg-red-600 text-white px-6 py-2 rounded-full font-black text-lg uppercase tracking-tighter shadow-2xl border-2 border-white/20 rotate-[-5deg]"
                 >
                   ¡VENDIDO!
                 </motion.div>
@@ -120,7 +119,6 @@ const CarCard: React.FC<CarCardProps> = ({ car, index }) => {
               <h3 className="text-xl md:text-2xl font-black text-zinc-900 leading-tight mb-1">
                 {car.model}
               </h3>
-              
               <p className="text-[10px] font-black text-zinc-400 uppercase tracking-widest mb-3">{car.make}</p>
               
               <p className="text-zinc-500 text-xs md:text-sm mb-5 line-clamp-2 leading-relaxed">
