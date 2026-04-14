@@ -125,6 +125,19 @@ const CarDetail: React.FC = () => {
                   />
                 ))}
               </div>
+
+              {/* Sold Badge Overlay */}
+              {car.isSold && (
+                <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] flex items-center justify-center z-30 pointer-events-none">
+                  <motion.div 
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    className="bg-red-600 text-white px-8 py-3 rounded-full font-black text-2xl uppercase tracking-tighter shadow-2xl border-2 border-white/20 rotate-[-5deg]"
+                  >
+                    ¡VENDIDO!
+                  </motion.div>
+                </div>
+              )}
             </div>
 
             {/* Thumbnails - Horizontally Scrollable */}
@@ -143,21 +156,42 @@ const CarDetail: React.FC = () => {
 
           {/* Right Column: Info & Specs */}
           <div>
-            <div className="mb-2">
+            <div className="mb-2 flex items-center gap-2 flex-wrap">
               <span className="text-zinc-600 font-bold tracking-wider text-sm border border-zinc-300 px-2 py-1 rounded uppercase">{car.make}</span>
+              {car.isSold && (
+                <span className="bg-red-600 text-white font-black tracking-tighter text-xs px-2 py-1 rounded uppercase">Vendido</span>
+              )}
+              {car.isUnique && !car.isSold && (
+                <span className="bg-indigo-600 text-white font-black tracking-tighter text-xs px-2 py-1 rounded uppercase animate-pulse">Único en España</span>
+              )}
             </div>
             <h1 className="text-4xl md:text-5xl font-extrabold text-zinc-900 mb-4">{car.model}</h1>
-            <div className="mb-8 flex items-baseline gap-3">
-              {car.offerPrice ? (
-                <>
-                  <span className="text-3xl font-bold text-red-600">{formatPrice(car.offerPrice)}</span>
-                  <span className="text-2xl text-zinc-400 font-normal line-through">{formatPrice(car.price)}</span>
-                </>
-              ) : (
-                <span className="text-3xl font-bold text-zinc-900">{formatPrice(car.price)}</span>
-              )}
-              <span className="text-lg text-zinc-500 font-normal">Contado</span>
-            </div>
+            
+            {car.isUnique && !car.isSold && (
+              <div className="mb-8 p-4 bg-indigo-50 border border-indigo-100 rounded-xl">
+                <p className="text-indigo-600 font-black text-xl mb-1 uppercase tracking-tighter">⭐ UNIDAD EXCLUSIVA</p>
+                <p className="text-indigo-500 text-sm font-medium">Este vehículo es una pieza única en España por su preparación y estado. Una oportunidad irrepetible para coleccionistas o entusiastas.</p>
+              </div>
+            )}
+
+            {car.isSold ? (
+              <div className="mb-8 p-4 bg-red-50 border border-red-100 rounded-xl">
+                <p className="text-red-600 font-black text-xl mb-1 uppercase tracking-tighter">¡VENDIDO EN TIEMPO RÉCORD!</p>
+                <p className="text-red-500 text-sm font-medium">Este vehículo ya no está disponible. Nuestros coches vuelan, ¡no dejes que se te escape el próximo!</p>
+              </div>
+            ) : (
+              <div className="mb-8 flex items-baseline gap-3">
+                {car.offerPrice ? (
+                  <>
+                    <span className="text-3xl font-bold text-red-600">{formatPrice(car.offerPrice)}</span>
+                    <span className="text-2xl text-zinc-400 font-normal line-through">{formatPrice(car.price)}</span>
+                  </>
+                ) : (
+                  <span className="text-3xl font-bold text-zinc-900">{formatPrice(car.price)}</span>
+                )}
+                <span className="text-lg text-zinc-500 font-normal">Contado</span>
+              </div>
+            )}
 
             {/* Description */}
             <div className="mb-8 prose prose-zinc">
@@ -215,22 +249,33 @@ const CarDetail: React.FC = () => {
 
             {/* Contact Buttons */}
             <div className="sticky bottom-4 z-20 flex flex-col sm:flex-row gap-4 bg-white/80 backdrop-blur-md p-4 sm:p-0 rounded-2xl sm:bg-transparent">
-              <a 
-                href={`tel:${COMPANY_PHONE}`}
-                className="flex-1 bg-black hover:bg-zinc-800 text-white py-4 rounded-xl font-bold flex items-center justify-center transition-all shadow-lg hover:shadow-xl"
-              >
-                <Phone className="mr-2" />
-                Llamar
-              </a>
-              <a 
-                href={contactWhatsapp}
-                target="_blank"
-                rel="noreferrer"
-                className="flex-1 bg-white hover:bg-zinc-50 text-black py-4 rounded-xl font-bold flex items-center justify-center transition-all border border-zinc-300 shadow-md hover:shadow-lg"
-              >
-                <MessageCircle className="mr-2" />
-                WhatsApp
-              </a>
+              {car.isSold ? (
+                <button 
+                  onClick={() => navigate('/')}
+                  className="flex-1 bg-black hover:bg-zinc-800 text-white py-4 rounded-xl font-bold flex items-center justify-center transition-all shadow-lg hover:shadow-xl"
+                >
+                  Ver otros vehículos disponibles
+                </button>
+              ) : (
+                <>
+                  <a 
+                    href={`tel:${COMPANY_PHONE}`}
+                    className="flex-1 bg-black hover:bg-zinc-800 text-white py-4 rounded-xl font-bold flex items-center justify-center transition-all shadow-lg hover:shadow-xl"
+                  >
+                    <Phone className="mr-2" />
+                    Llamar
+                  </a>
+                  <a 
+                    href={contactWhatsapp}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex-1 bg-white hover:bg-zinc-50 text-black py-4 rounded-xl font-bold flex items-center justify-center transition-all border border-zinc-300 shadow-md hover:shadow-lg"
+                  >
+                    <MessageCircle className="mr-2" />
+                    WhatsApp
+                  </a>
+                </>
+              )}
             </div>
           </div>
         </div>
