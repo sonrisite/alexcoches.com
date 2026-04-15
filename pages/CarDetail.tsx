@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Phone, MessageCircle, Calendar, Gauge, Fuel, Zap, Settings, ArrowLeft, ZoomIn } from 'lucide-react';
@@ -14,8 +14,31 @@ const CarDetail: React.FC = () => {
 
   const car = MOCK_CARS.find(c => c.id === id);
   
-  // Related cars (excluding current)
-  const relatedCars = MOCK_CARS.filter(c => c.id !== id).slice(0, 3);
+  // Related cars (excluding current and sold, scored by similarity)
+  const relatedCars = useMemo(() => {
+    if (!car) return [];
+    
+    return MOCK_CARS
+      .filter(c => c.id !== id && !c.isSold)
+      .map(c => {
+        let score = 0;
+        if (c.make === car.make) score += 3;
+        if (c.bodyType === car.bodyType) score += 2;
+        if (c.fuel === car.fuel) score += 1;
+        
+        // Similar price (within 25%)
+        const priceDiff = Math.abs(c.price - car.price);
+        if (car.price > 0 && priceDiff <= car.price * 0.25) score += 1;
+        
+        // Random tie-breaker to add variety
+        const randomTieBreaker = Math.random() * 0.5;
+        
+        return { car: c, score: score + randomTieBreaker };
+      })
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 3)
+      .map(item => item.car);
+  }, [car, id]);
 
   useEffect(() => {
     // Reset scroll and index when entering page or changing car
