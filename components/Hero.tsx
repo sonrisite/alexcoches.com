@@ -1,18 +1,30 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Hero: React.FC = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+
   return (
-    <div className="relative min-h-[30vh] md:min-h-[40vh] w-full overflow-hidden flex items-center justify-center bg-black pt-16 md:pt-20">
+    <div ref={ref} className="relative min-h-[30vh] md:min-h-[40vh] w-full overflow-hidden flex items-center justify-center bg-black pt-16 md:pt-20">
       {/* Background with focused car image */}
-      <div className="absolute inset-0 z-0">
+      <motion.div 
+        className="absolute inset-0 z-0 origin-top"
+        style={{ y, scale }}
+      >
         <img
           src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1920&auto=format&fit=crop"
           alt="Coches de Ocasión"
           className="w-full h-full object-cover opacity-30"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
-      </div>
+      </motion.div>
+      <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-black via-black/10 to-transparent" />
 
       {/* Ultra-Compact Content */}
       <motion.div 
