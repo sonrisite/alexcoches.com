@@ -595,6 +595,31 @@ export const MOCK_CARS: Car[] = [
       `${CLOUDINARY_BASE_URL}images/bmw-serie7/8`,
     ],
     description: 'Impresionante BMW Serie 7 con un potente motor de 408 CV y etiqueta C. Se entrega con revisión recién hecha e ITV al día para su total tranquilidad. Un lujo de berlina con 131.000 km y 1 año de garantía incluido. Un vehículo imponente y confortable.'
+  },
+  {
+    id: '25',
+    make: 'Volkswagen',
+    model: 'Golf',
+    year: 2013,
+    price: 10900,
+    km: 137000,
+    fuel: 'Gasolina',
+    transmission: 'Manual',
+    power: 125,
+    color: 'A consultar',
+    bodyType: 'Compacto',
+    images: [
+      `${CLOUDINARY_BASE_URL}images/volkswagen-golf2013/1`,
+      `${CLOUDINARY_BASE_URL}images/volkswagen-golf2013/2`,
+      `${CLOUDINARY_BASE_URL}images/volkswagen-golf2013/3`,
+      `${CLOUDINARY_BASE_URL}images/volkswagen-golf2013/4`,
+      `${CLOUDINARY_BASE_URL}images/volkswagen-golf2013/5`,
+      `${CLOUDINARY_BASE_URL}images/volkswagen-golf2013/6`,
+      `${CLOUDINARY_BASE_URL}images/volkswagen-golf2013/7`,
+      `${CLOUDINARY_BASE_URL}images/volkswagen-golf2013/8`,
+      `${CLOUDINARY_BASE_URL}images/volkswagen-golf2013/9`,
+    ],
+    description: 'Volkswagen Golf del año 2013 con 137.000 km y 125 CV. Etiqueta C. Recién revisado a fondo e ITV al día. Se entrega con 1 año de garantía. Un compacto icónico en excelente estado y listo para disfrutar.'
   }
 ];
 
