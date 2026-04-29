@@ -606,7 +606,7 @@ export const MOCK_CARS: Car[] = [
     fuel: 'Gasolina',
     transmission: 'Manual',
     power: 125,
-    color: 'A consultar',
+    color: 'Gris',
     bodyType: 'Compacto',
     images: [
       `${CLOUDINARY_BASE_URL}images/volkswagen-golf2013/1`,
