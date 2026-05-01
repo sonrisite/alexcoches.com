@@ -263,7 +263,7 @@ export const MOCK_CARS: Car[] = [
     fuel: 'Gasolina',
     transmission: 'Manual',
     power: 82,
-    color: 'Blanco',
+    color: 'Rojo',
     bodyType: 'Compacto',
     images: [
       `${CLOUDINARY_BASE_URL}images/citroen-cactus-c4/1`,
@@ -288,7 +288,7 @@ export const MOCK_CARS: Car[] = [
     fuel: 'Gasolina',
     transmission: 'Manual',
     power: 120,
-    color: 'Gris',
+    color: 'Rojo',
     bodyType: 'Compacto',
     images: [
       `${CLOUDINARY_BASE_URL}images/peageut-207/1`,
@@ -312,7 +312,7 @@ export const MOCK_CARS: Car[] = [
     fuel: 'Gasolina',
     transmission: 'Manual',
     power: 140,
-    color: 'Gris',
+    color: 'Blanco',
     bodyType: 'SUV',
     images: [
       `${CLOUDINARY_BASE_URL}images/nissan-quasqai/1`,
@@ -336,7 +336,7 @@ export const MOCK_CARS: Car[] = [
     fuel: 'Gasolina',
     transmission: 'Automática',
     power: 310,
-    color: 'Blanco',
+    color: 'Negro',
     bodyType: 'Compacto',
     images: [
       `${CLOUDINARY_BASE_URL}images/polo-gti/1`,
@@ -363,7 +363,7 @@ export const MOCK_CARS: Car[] = [
     fuel: 'Gasolina',
     transmission: 'Automática',
     power: 408,
-    color: 'Azul',
+    color: 'Blanco',
     bodyType: 'Compacto',
     images: [
       `${CLOUDINARY_BASE_URL}images/golf-r/1`,
@@ -385,7 +385,7 @@ export const MOCK_CARS: Car[] = [
     fuel: 'Diesel',
     transmission: 'Manual',
     power: 160,
-    color: 'A consultar',
+    color: 'Blanco',
     bodyType: 'SUV',
     images: [
       `${CLOUDINARY_BASE_URL}images/jeep-patriot/1`,
@@ -435,7 +435,7 @@ export const MOCK_CARS: Car[] = [
     fuel: 'Gasolina',
     transmission: 'Manual',
     power: 90,
-    color: 'A consultar',
+    color: 'Rojo',
     bodyType: 'Familiar',
     images: [
       `${CLOUDINARY_BASE_URL}images/peageut-207-familiar/1`,
@@ -459,7 +459,7 @@ export const MOCK_CARS: Car[] = [
     fuel: 'Diesel',
     transmission: 'Automática',
     power: 190,
-    color: 'A consultar',
+    color: 'Gris',
     bodyType: 'SUV',
     images: [
       `${CLOUDINARY_BASE_URL}images/land-rover-sport/1`,
@@ -483,7 +483,7 @@ export const MOCK_CARS: Car[] = [
     fuel: 'Gasolina',
     transmission: 'Manual',
     power: 130,
-    color: 'A consultar',
+    color: 'Negro',
     bodyType: 'Compacto',
     images: [
       `${CLOUDINARY_BASE_URL}images/peageut-308/1`,
@@ -496,32 +496,6 @@ export const MOCK_CARS: Car[] = [
       `${CLOUDINARY_BASE_URL}images/peageut-308/8`,
     ],
     description: 'Peugeot 308 del año 2015 con 147.000 km y 130 CV. Etiqueta C. Se entrega con revisión recién hecha y 1 año de garantía. Un coche fiable y bien cuidado.'
-  },
-  {
-    id: '21',
-    make: 'Mini',
-    model: 'Cooper R50',
-    year: 2007,
-    price: 3900,
-    km: 200000,
-    fuel: 'Gasolina',
-    transmission: 'Manual',
-    power: 116,
-    color: 'A consultar',
-    bodyType: 'Compacto',
-    images: [
-      `${CLOUDINARY_BASE_URL}images/mini-cooper-r50/1`,
-      `${CLOUDINARY_BASE_URL}images/mini-cooper-r50/2`,
-      `${CLOUDINARY_BASE_URL}images/mini-cooper-r50/3`,
-      `${CLOUDINARY_BASE_URL}images/mini-cooper-r50/4`,
-      `${CLOUDINARY_BASE_URL}images/mini-cooper-r50/5`,
-      `${CLOUDINARY_BASE_URL}images/mini-cooper-r50/6`,
-      `${CLOUDINARY_BASE_URL}images/mini-cooper-r50/7`,
-      `${CLOUDINARY_BASE_URL}images/mini-cooper-r50/8`,
-      `${CLOUDINARY_BASE_URL}images/mini-cooper-r50/9`,
-      `${CLOUDINARY_BASE_URL}images/mini-cooper-r50/10`,
-    ],
-    description: 'Mini Cooper R50 con el fiable motor BMW de 116 CV. En estado perfecto, equipado con asientos de piel y techo solar. Se entrega con 1 año de garantía.'
   },
   {
     id: '22',
