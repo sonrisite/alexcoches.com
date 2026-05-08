@@ -110,7 +110,7 @@ export const MOCK_CARS: Car[] = [
     km: 145000,
     fuel: 'Gasolina',
     transmission: 'Automática',
-    power: 156,
+    power: 292,
     color: 'Blanco',
     bodyType: 'Sedán',
     images: [
