@@ -248,7 +248,7 @@ export const MOCK_CARS: Car[] = [
       `${CLOUDINARY_BASE_URL}images/citroen-cactus-c4/8`,
       `${CLOUDINARY_BASE_URL}images/citroen-cactus-c4/9`,
     ],
-    description: 'Citroen Cactus C4 Pure de 82 CV gasolina con etiqueta C. Vehículo en excelente estado, con 112.000 km. Recién revisado y con 1 año de garantía incluido. Una opción económica, fiable y con un diseño único.'
+    description: 'Citroen Cactus C4 Pure de 82 CV gasolina con etiqueta C. Vehículo en excelente estado, con 112.000 km. Recién revisado y con 1 año de garantía incluido. Una opción económica, fiable y con un diseño único.',
     isSold: true
   },
   {
@@ -273,7 +273,7 @@ export const MOCK_CARS: Car[] = [
       `${CLOUDINARY_BASE_URL}images/peageut-207/7`,
       `${CLOUDINARY_BASE_URL}images/peageut-207/8`,
     ],
-    description: 'Peugeot 207 con motor 1.6 de 16 válvulas y 120 CV. Etiqueta C de gasolina. Procedente de un solo dueño, con tan solo 114.000 km. Año 2010. Un coche fiable, bien cuidado y con un consumo equilibrado.'
+    description: 'Peugeot 207 con motor 1.6 de 16 válvulas y 120 CV. Etiqueta C de gasolina. Procedente de un solo dueño, con tan solo 114.000 km. Año 2010. Un coche fiable, bien cuidado y con un consumo equilibrado.',
     isSold: true
   },
   {
@@ -348,7 +348,7 @@ export const MOCK_CARS: Car[] = [
       `${CLOUDINARY_BASE_URL}images/golf-r/5`,
       `${CLOUDINARY_BASE_URL}images/golf-r/6`,
     ],
-    description: 'Espectacular Volkswagen Golf R con 408 CV. Cuenta con 2 reprogramaciones realizadas por expertos para un rendimiento óptimo. Totalmente equipado: techo solar, asientos de piel, cambio automático DSG con levas. Un vehículo de altas prestaciones con 135.000 km y 1 año de garantía.'
+    description: 'Espectacular Volkswagen Golf R con 408 CV. Cuenta con 2 reprogramaciones realizadas por expertos para un rendimiento óptimo. Totalmente equipado: techo solar, asientos de piel, cambio automático DSG con levas. Un vehículo de altas prestaciones con 135.000 km y 1 año de garantía.',
     isSold: true
   },
   {
@@ -452,7 +452,7 @@ export const MOCK_CARS: Car[] = [
       `${CLOUDINARY_BASE_URL}images/peageut-207-familiar/7`,
       `${CLOUDINARY_BASE_URL}images/peageut-207-familiar/8`,
     ],
-    description: 'Peugeot 207 familiar del año 2011 con 155.000 km y 90 CV. Etiqueta C. Se entrega con revisión recién hecha y 1 año de garantía. Un vehículo versátil y fiable.'
+    description: 'Peugeot 207 familiar del año 2011 con 155.000 km y 90 CV. Etiqueta C. Se entrega con revisión recién hecha y 1 año de garantía. Un vehículo versátil y fiable.',
     isSold: true
   },
   {
@@ -550,7 +550,7 @@ export const MOCK_CARS: Car[] = [
       `${CLOUDINARY_BASE_URL}images/citroen-jumper/8`,
       `${CLOUDINARY_BASE_URL}images/citroen-jumper/9`,
     ],
-    description: 'Citroën Jumper 2021 L1H1 2.2 BlueHDi 140 CV en Gavà (Barcelona). Furgoneta de 3 plazas con 131.000 km y etiqueta C (Verde). Precio al contado: 15.900 € (IVA incluido) | Precio financiado: 15.700 €. Financiación al 100% sin entrada. Muy cuidada, con revisión recién hecha. Equipada con cámara de marcha atrás, bola de remolque, barras de techo, control de crucero, volante multifunción y Bluetooth. Ideal para uso profesional o comercial.'
+    description: 'Citroën Jumper 2021 L1H1 2.2 BlueHDi 140 CV en Gavà (Barcelona). Furgoneta de 3 plazas con 131.000 km y etiqueta C (Verde). Precio al contado: 15.900 € (IVA incluido) | Precio financiado: 15.700 €. Financiación al 100% sin entrada. Muy cuidada, con revisión recién hecha. Equipada con cámara de marcha atrás, bola de remolque, barras de techo, control de crucero, volante multifunción y Bluetooth. Ideal para uso profesional o comercial.',
     isSold: true
   },
   {
