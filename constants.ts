@@ -5,6 +5,7 @@ export const CLOUDINARY_BASE_URL = 'https://res.cloudinary.com/devtgyyan/image/u
 
 // Helper to format currency
 export const formatPrice = (price: number): string => {
+  if (!price || price === 0) return 'A consultar';
   return new Intl.NumberFormat('es-ES', {
     style: 'currency',
     currency: 'EUR',
@@ -248,8 +249,7 @@ export const MOCK_CARS: Car[] = [
       `${CLOUDINARY_BASE_URL}images/citroen-cactus-c4/8`,
       `${CLOUDINARY_BASE_URL}images/citroen-cactus-c4/9`,
     ],
-    description: 'Citroen Cactus C4 Pure de 82 CV gasolina con etiqueta C. Vehículo en excelente estado, con 112.000 km. Recién revisado y con 1 año de garantía incluido. Una opción económica, fiable y con un diseño único.',
-    isSold: true
+    description: 'Citroen Cactus C4 Pure de 82 CV gasolina con etiqueta C. Vehículo en excelente estado, con 112.000 km. Recién revisado y con 1 año de garantía incluido. Una opción económica, fiable y con un diseño único.'
   },
   {
     id: '12',
@@ -273,8 +273,7 @@ export const MOCK_CARS: Car[] = [
       `${CLOUDINARY_BASE_URL}images/peageut-207/7`,
       `${CLOUDINARY_BASE_URL}images/peageut-207/8`,
     ],
-    description: 'Peugeot 207 con motor 1.6 de 16 válvulas y 120 CV. Etiqueta C de gasolina. Procedente de un solo dueño, con tan solo 114.000 km. Año 2010. Un coche fiable, bien cuidado y con un consumo equilibrado.',
-    isSold: true
+    description: 'Peugeot 207 con motor 1.6 de 16 válvulas y 120 CV. Etiqueta C de gasolina. Procedente de un solo dueño, con tan solo 114.000 km. Año 2010. Un coche fiable, bien cuidado y con un consumo equilibrado.'
   },
   {
     id: '13',
@@ -348,8 +347,7 @@ export const MOCK_CARS: Car[] = [
       `${CLOUDINARY_BASE_URL}images/golf-r/5`,
       `${CLOUDINARY_BASE_URL}images/golf-r/6`,
     ],
-    description: 'Espectacular Volkswagen Golf R con 408 CV. Cuenta con 2 reprogramaciones realizadas por expertos para un rendimiento óptimo. Totalmente equipado: techo solar, asientos de piel, cambio automático DSG con levas. Un vehículo de altas prestaciones con 135.000 km y 1 año de garantía.',
-    isSold: true
+    description: 'Espectacular Volkswagen Golf R con 408 CV. Cuenta con 2 reprogramaciones realizadas por expertos para un rendimiento óptimo. Totalmente equipado: techo solar, asientos de piel, cambio automático DSG con levas. Un vehículo de altas prestaciones con 135.000 km y 1 año de garantía.'
   },
   {
     id: '16',
@@ -452,8 +450,7 @@ export const MOCK_CARS: Car[] = [
       `${CLOUDINARY_BASE_URL}images/peageut-207-familiar/7`,
       `${CLOUDINARY_BASE_URL}images/peageut-207-familiar/8`,
     ],
-    description: 'Peugeot 207 familiar del año 2011 con 155.000 km y 90 CV. Etiqueta C. Se entrega con revisión recién hecha y 1 año de garantía. Un vehículo versátil y fiable.',
-    isSold: true
+    description: 'Peugeot 207 familiar del año 2011 con 155.000 km y 90 CV. Etiqueta C. Se entrega con revisión recién hecha y 1 año de garantía. Un vehículo versátil y fiable.'
   },
   {
     id: '19',
@@ -550,8 +547,7 @@ export const MOCK_CARS: Car[] = [
       `${CLOUDINARY_BASE_URL}images/citroen-jumper/8`,
       `${CLOUDINARY_BASE_URL}images/citroen-jumper/9`,
     ],
-    description: 'Citroën Jumper 2021 L1H1 2.2 BlueHDi 140 CV en Gavà (Barcelona). Furgoneta de 3 plazas con 131.000 km y etiqueta C (Verde). Precio al contado: 15.900 € (IVA incluido) | Precio financiado: 15.700 €. Financiación al 100% sin entrada. Muy cuidada, con revisión recién hecha. Equipada con cámara de marcha atrás, bola de remolque, barras de techo, control de crucero, volante multifunción y Bluetooth. Ideal para uso profesional o comercial.',
-    isSold: true
+    description: 'Citroën Jumper 2021 L1H1 2.2 BlueHDi 140 CV en Gavà (Barcelona). Furgoneta de 3 plazas con 131.000 km y etiqueta C (Verde). Precio al contado: 15.900 € (IVA incluido) | Precio financiado: 15.700 €. Financiación al 100% sin entrada. Muy cuidada, con revisión recién hecha. Equipada con cámara de marcha atrás, bola de remolque, barras de techo, control de crucero, volante multifunción y Bluetooth. Ideal para uso profesional o comercial.'
   },
   {
     id: '24',
@@ -601,6 +597,107 @@ export const MOCK_CARS: Car[] = [
       `${CLOUDINARY_BASE_URL}images/volkswagen-golf2013/9`,
     ],
     description: 'Volkswagen Golf del año 2013 con 137.000 km y 125 CV. Etiqueta C. Recién revisado a fondo e ITV al día. Se entrega con 1 año de garantía. Un compacto icónico en excelente estado y listo para disfrutar.'
+  },
+  {
+    id: '26',
+    make: 'Mini',
+    model: 'Mini Cooper One R50',
+    year: 2007,
+    price: 4500,
+    km: 145000,
+    fuel: 'Gasolina',
+    transmission: 'Manual',
+    power: 90,
+    color: 'Negro',
+    bodyType: 'Compacto',
+    images: [
+      `${CLOUDINARY_BASE_URL}images/mini-cooper-r50-2/1`,
+      `${CLOUDINARY_BASE_URL}images/mini-cooper-r50-2/2`,
+      `${CLOUDINARY_BASE_URL}images/mini-cooper-r50-2/3`,
+      `${CLOUDINARY_BASE_URL}images/mini-cooper-r50-2/4`,
+      `${CLOUDINARY_BASE_URL}images/mini-cooper-r50-2/5`,
+      `${CLOUDINARY_BASE_URL}images/mini-cooper-r50-2/6`,
+      `${CLOUDINARY_BASE_URL}images/mini-cooper-r50-2/7`,
+      `${CLOUDINARY_BASE_URL}images/mini-cooper-r50-2/8`,
+      `${CLOUDINARY_BASE_URL}images/mini-cooper-r50-2/9`,
+      `${CLOUDINARY_BASE_URL}images/mini-cooper-r50-2/10`,
+    ],
+    description: 'Exclusivo Mini One (carrocería R50) del año 2007 con 145.000 km y 90 CV. Un vehículo icónico equipado con extras muy cotizados como techo solar y tapicería de piel. Se entrega con la revisión recién hecha e ITV en vigor hasta junio de 2027. Un compacto con gran estilo y listo para disfrutar.'
+  },
+  {
+    id: '27',
+    make: 'Audi',
+    model: 'Q5',
+    year: 2012,
+    price: 0,
+    km: 186000,
+    fuel: 'Diesel',
+    transmission: 'Manual',
+    power: 177,
+    color: 'Negro',
+    bodyType: 'SUV',
+    images: [
+      `${CLOUDINARY_BASE_URL}images/audi-Q5/1`,
+      `${CLOUDINARY_BASE_URL}images/audi-Q5/2`,
+      `${CLOUDINARY_BASE_URL}images/audi-Q5/3`,
+      `${CLOUDINARY_BASE_URL}images/audi-Q5/4`,
+      `${CLOUDINARY_BASE_URL}images/audi-Q5/5`,
+      `${CLOUDINARY_BASE_URL}images/audi-Q5/6`,
+      `${CLOUDINARY_BASE_URL}images/audi-Q5/7`,
+      `${CLOUDINARY_BASE_URL}images/audi-Q5/8`,
+      `${CLOUDINARY_BASE_URL}images/audi-Q5/9`,
+      `${CLOUDINARY_BASE_URL}images/audi-Q5/10`,
+    ],
+    description: 'Audi Q5 (primera generación) con motor diésel de 177 CV y 186.000 km. Procedente de un único propietario. Se entrega con revisión recién hecha, ITV en vigor hasta 2027 y 1 año de garantía. Un SUV robusto, elegante y muy fiable en color negro.',
+    isSold: true
+  },
+  {
+    id: '28',
+    make: 'Peugeot',
+    model: '207 Automático',
+    year: 2010,
+    price: 4000,
+    km: 130000,
+    fuel: 'Gasolina',
+    transmission: 'Automática',
+    power: 120,
+    color: 'Gris',
+    bodyType: 'Compacto',
+    images: [
+      `${CLOUDINARY_BASE_URL}images/peugeot-207-2/1`,
+      `${CLOUDINARY_BASE_URL}images/peugeot-207-2/2`,
+      `${CLOUDINARY_BASE_URL}images/peugeot-207-2/3`,
+      `${CLOUDINARY_BASE_URL}images/peugeot-207-2/4`,
+      `${CLOUDINARY_BASE_URL}images/peugeot-207-2/5`,
+      `${CLOUDINARY_BASE_URL}images/peugeot-207-2/6`,
+    ],
+    description: 'Peugeot 207 automático con 120 CV en color gris y 130.000 km. Procedente de un solo propietario. Entregado con ITV y revisión recién hechas, y 1 año de garantía incluido. Un compacto cómodo, fiable y en excelente estado.'
+  },
+  {
+    id: '29',
+    make: 'Volkswagen',
+    model: 'Golf MK7',
+    year: 2020,
+    price: 0,
+    km: 116000,
+    fuel: 'Gasolina',
+    transmission: 'Manual',
+    power: 131,
+    color: 'Rojo',
+    bodyType: 'Compacto',
+    images: [
+      `${CLOUDINARY_BASE_URL}images/volkswagen-golf-MK7/1`,
+      `${CLOUDINARY_BASE_URL}images/volkswagen-golf-MK7/2`,
+      `${CLOUDINARY_BASE_URL}images/volkswagen-golf-MK7/3`,
+      `${CLOUDINARY_BASE_URL}images/volkswagen-golf-MK7/4`,
+      `${CLOUDINARY_BASE_URL}images/volkswagen-golf-MK7/5`,
+      `${CLOUDINARY_BASE_URL}images/volkswagen-golf-MK7/6`,
+      `${CLOUDINARY_BASE_URL}images/volkswagen-golf-MK7/7`,
+      `${CLOUDINARY_BASE_URL}images/volkswagen-golf-MK7/8`,
+      `${CLOUDINARY_BASE_URL}images/volkswagen-golf-MK7/9`,
+    ],
+    description: 'Volkswagen Golf MK7 del año 2020 en color rojo con motor gasolina de 131 CV y 116.000 km. Etiqueta C. Procedente de 1 solo propietario, con revisión recién hecha y 1 año de garantía incluido. Un compacto moderno, eficiente y en excelente estado.',
+    isSold: true
   }
 ];
 
