@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Instagram, Facebook } from 'lucide-react';
 import { CLOUDINARY_BASE_URL } from '../constants';
 
 const Navbar: React.FC = () => {
@@ -52,8 +53,26 @@ const Navbar: React.FC = () => {
             />
           </Link>
 
-          {/* Contact Button - Always visible, direct access */}
-          <div className="flex items-center">
+          {/* Social Links & Contact Button */}
+          <div className="flex items-center gap-4 md:gap-6">
+            <div className="flex items-center gap-3">
+              <a 
+                href="https://www.instagram.com/alexcoches_/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-zinc-400 hover:text-white transition-colors p-1"
+              >
+                <Instagram size={20} />
+              </a>
+              <a 
+                href="https://www.facebook.com/profile.php?id=61591405893805" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-zinc-400 hover:text-white transition-colors p-1"
+              >
+                <Facebook size={20} />
+              </a>
+            </div>
             <button 
               onClick={scrollToContact}
               className="bg-white hover:bg-zinc-200 text-black px-4 py-1.5 md:px-6 md:py-2.5 rounded-full text-xs md:text-sm font-black uppercase tracking-tight transition-all transform hover:scale-105 shadow-lg cursor-pointer active:scale-95"
