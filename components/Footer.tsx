@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail } from 'lucide-react';
+import { Phone, Mail, Instagram, Facebook } from 'lucide-react';
 import { CLOUDINARY_BASE_URL } from '../constants';
 
 const Footer: React.FC = () => {
@@ -49,6 +49,32 @@ const Footer: React.FC = () => {
               <Mail size={20} className="text-zinc-300 group-hover:text-white" />
             </div>
             <span className="font-medium text-lg">info@alexcoches.com</span>
+          </a>
+        </div>
+
+        {/* Social Links */}
+        <div className="flex items-center justify-center gap-6 mb-12">
+          <a 
+            href="https://www.instagram.com/alexcoches_/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="group flex flex-col items-center gap-2"
+          >
+            <div className="p-3 bg-zinc-900/50 rounded-full border border-zinc-800 group-hover:border-zinc-500 group-hover:bg-zinc-800 transition-all duration-300">
+              <Instagram size={24} className="text-zinc-400 group-hover:text-white transition-colors" />
+            </div>
+            <span className="text-sm text-zinc-500 group-hover:text-zinc-300 transition-colors">Instagram</span>
+          </a>
+          <a 
+            href="https://www.facebook.com/profile.php?id=61591405893805" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="group flex flex-col items-center gap-2"
+          >
+            <div className="p-3 bg-zinc-900/50 rounded-full border border-zinc-800 group-hover:border-zinc-500 group-hover:bg-zinc-800 transition-all duration-300">
+              <Facebook size={24} className="text-zinc-400 group-hover:text-white transition-colors" />
+            </div>
+            <span className="text-sm text-zinc-500 group-hover:text-zinc-300 transition-colors">Facebook</span>
           </a>
         </div>
 
