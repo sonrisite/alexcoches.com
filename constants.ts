@@ -412,7 +412,7 @@ export const MOCK_CARS: Car[] = [
     fuel: 'Diesel',
     transmission: 'Automática',
     power: 110,
-    color: 'Gris oscuro',
+    color: 'A consultar',
     bodyType: 'Monovolumen',
     images: [
       `${CLOUDINARY_BASE_URL}images/volkswagen-touran/1`,
