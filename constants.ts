@@ -174,82 +174,8 @@ export const MOCK_CARS: Car[] = [
       `${CLOUDINARY_BASE_URL}images/bmw-gs-1200/8`,
       `${CLOUDINARY_BASE_URL}images/bmw-gs-1200/9`,
     ],
-    description: 'Edición limitada de la icónica BMW GS 1200. Equipada hasta el último detalle: escape Akrapovic, juego de maletas completo, pantalla alta y luces de ruta. Proviene de un único dueño y su estado es mejor que nueva. Una oportunidad única para los amantes de la aventura.'
-  },
-  {
-    id: '9',
-    make: 'Mercedes-Benz',
-    model: 'Clase E',
-    year: 2007,
-    price: 7950,
-    km: 140000,
-    fuel: 'Gasolina',
-    transmission: 'Automática',
-    power: 265,
-    color: 'Gris',
-    bodyType: 'Sedán',
-    images: [
-      `${CLOUDINARY_BASE_URL}images/mercedes-e/1`,
-      `${CLOUDINARY_BASE_URL}images/mercedes-e/2`,
-      `${CLOUDINARY_BASE_URL}images/mercedes-e/3`,
-      `${CLOUDINARY_BASE_URL}images/mercedes-e/4`,
-      `${CLOUDINARY_BASE_URL}images/mercedes-e/5`,
-      `${CLOUDINARY_BASE_URL}images/mercedes-e/6`,
-      `${CLOUDINARY_BASE_URL}images/mercedes-e/7`,
-      `${CLOUDINARY_BASE_URL}images/mercedes-e/8`,
-      `${CLOUDINARY_BASE_URL}images/mercedes-e/9`,
-      `${CLOUDINARY_BASE_URL}images/mercedes-e/10`,
-    ],
-    description: 'Elegante Mercedes-Benz Clase E del 2007 con un potente motor de 265 CV. Proviene de un único propietario y ha sido guardado siempre en garaje, presentando un estado de conservación excepcional, como nuevo. Una berlina de lujo, fiable y potente, ideal para quien busca confort y prestaciones.'
-  },
-  {
-    id: '10',
-    make: 'Renault',
-    model: 'Megane Sport Tourer ST 1.3',
-    year: 2019,
-    price: 9800,
-    km: 136000,
-    fuel: 'Gasolina',
-    transmission: 'Manual',
-    power: 140,
-    color: 'Gris',
-    bodyType: 'Familiar',
-    images: [
-      `${CLOUDINARY_BASE_URL}images/renault-megane-sport/1`,
-      `${CLOUDINARY_BASE_URL}images/renault-megane-sport/2`,
-      `${CLOUDINARY_BASE_URL}images/renault-megane-sport/3`,
-      `${CLOUDINARY_BASE_URL}images/renault-megane-sport/4`,
-      `${CLOUDINARY_BASE_URL}images/renault-megane-sport/5`,
-      `${CLOUDINARY_BASE_URL}images/renault-megane-sport/6`,
-      `${CLOUDINARY_BASE_URL}images/renault-megane-sport/7`,
-      `${CLOUDINARY_BASE_URL}images/renault-megane-sport/8`,
-    ],
-    description: 'Renault Megane Sport Tourer ST con motor 1.3 de 140 CV y etiqueta C. Un vehículo familiar versátil y potente, con 136.000 km. Se entrega con 1 año de garantía, recién revisado y con la ITV en vigor hasta 2027. Ideal para quienes buscan espacio y eficiencia.'
-  },
-  {
-    id: '11',
-    make: 'Citroen',
-    model: 'Cactus C4 Pure',
-    year: 2016,
-    price: 6500,
-    km: 112000,
-    fuel: 'Gasolina',
-    transmission: 'Manual',
-    power: 82,
-    color: 'Rojo',
-    bodyType: 'Compacto',
-    images: [
-      `${CLOUDINARY_BASE_URL}images/citroen-cactus-c4/1`,
-      `${CLOUDINARY_BASE_URL}images/citroen-cactus-c4/2`,
-      `${CLOUDINARY_BASE_URL}images/citroen-cactus-c4/3`,
-      `${CLOUDINARY_BASE_URL}images/citroen-cactus-c4/4`,
-      `${CLOUDINARY_BASE_URL}images/citroen-cactus-c4/5`,
-      `${CLOUDINARY_BASE_URL}images/citroen-cactus-c4/6`,
-      `${CLOUDINARY_BASE_URL}images/citroen-cactus-c4/7`,
-      `${CLOUDINARY_BASE_URL}images/citroen-cactus-c4/8`,
-      `${CLOUDINARY_BASE_URL}images/citroen-cactus-c4/9`,
-    ],
-    description: 'Citroen Cactus C4 Pure de 82 CV gasolina con etiqueta C. Vehículo en excelente estado, con 112.000 km. Recién revisado y con 1 año de garantía incluido. Una opción económica, fiable y con un diseño único.'
+    description: 'Edición limitada de la icónica BMW GS 1200. Equipada hasta el último detalle: escape Akrapovic, juego de maletas completo, pantalla alta y luces de ruta. Proviene de un único dueño y su estado es mejor que nueva. Una oportunidad única para los amantes de la aventura.',
+    isSold: true
   },
   {
     id: '12',
@@ -347,7 +273,8 @@ export const MOCK_CARS: Car[] = [
       `${CLOUDINARY_BASE_URL}images/golf-r/5`,
       `${CLOUDINARY_BASE_URL}images/golf-r/6`,
     ],
-    description: 'Espectacular Volkswagen Golf R con 408 CV. Cuenta con 2 reprogramaciones realizadas por expertos para un rendimiento óptimo. Totalmente equipado: techo solar, asientos de piel, cambio automático DSG con levas. Un vehículo de altas prestaciones con 135.000 km y 1 año de garantía.'
+    description: 'Espectacular Volkswagen Golf R con 408 CV. Cuenta con 2 reprogramaciones realizadas por expertos para un rendimiento óptimo. Totalmente equipado: techo solar, asientos de piel, cambio automático DSG con levas. Un vehículo de altas prestaciones con 135.000 km y 1 año de garantía.',
+    isSold: true
   },
   {
     id: '16',
@@ -429,30 +356,6 @@ export const MOCK_CARS: Car[] = [
     description: 'Volkswagen Touran en estado impecable. Equipada con cambio automático DSG, techo solar y llantas de aleación. Un monovolumen fiable y espacioso con 150.000 km.'
   },
   {
-    id: '18',
-    make: 'Peugeot',
-    model: '207 Familiar',
-    year: 2011,
-    price: 3000,
-    km: 155000,
-    fuel: 'Gasolina',
-    transmission: 'Manual',
-    power: 90,
-    color: 'Rojo',
-    bodyType: 'Familiar',
-    images: [
-      `${CLOUDINARY_BASE_URL}images/peageut-207-familiar/1`,
-      `${CLOUDINARY_BASE_URL}images/peageut-207-familiar/2`,
-      `${CLOUDINARY_BASE_URL}images/peageut-207-familiar/3`,
-      `${CLOUDINARY_BASE_URL}images/peageut-207-familiar/4`,
-      `${CLOUDINARY_BASE_URL}images/peageut-207-familiar/5`,
-      `${CLOUDINARY_BASE_URL}images/peageut-207-familiar/6`,
-      `${CLOUDINARY_BASE_URL}images/peageut-207-familiar/7`,
-      `${CLOUDINARY_BASE_URL}images/peageut-207-familiar/8`,
-    ],
-    description: 'Peugeot 207 familiar del año 2011 con 155.000 km y 90 CV. Etiqueta C. Se entrega con revisión recién hecha y 1 año de garantía. Un vehículo versátil y fiable.'
-  },
-  {
     id: '19',
     make: 'Land Rover',
     model: 'Sport',
@@ -522,7 +425,8 @@ export const MOCK_CARS: Car[] = [
       `${CLOUDINARY_BASE_URL}images/dacia-lodgy/7`,
       `${CLOUDINARY_BASE_URL}images/dacia-lodgy/8`,
     ],
-    description: 'Excelente Dacia Lodgy de 7 plazas en Gavà (Barcelona), versión 1.6 TCe 115 Laureate (tope de gama). Un único propietario, con 78.000 km y etiqueta C. Precio al contado: 11.200 € | Precio financiado: 11.000 €. Financiación sin entrada desde 150 €/mes. Equipado con aire acondicionado, control de crucero, volante multifunción, faros antiniebla, alarma volumétrica e Isofix. Se entrega con revisión recién hecha, garantía y cambio de nombre incluido.'
+    description: 'Excelente Dacia Lodgy de 7 plazas en Gavà (Barcelona), versión 1.6 TCe 115 Laureate (tope de gama). Un único propietario, con 78.000 km y etiqueta C. Precio al contado: 11.200 € | Precio financiado: 11.000 €. Financiación sin entrada desde 150 €/mes. Equipado con aire acondicionado, control de crucero, volante multifunción, faros antiniebla, alarma volumétrica e Isofix. Se entrega con revisión recién hecha, garantía y cambio de nombre incluido.',
+    isSold: true
   },
   {
     id: '23',
@@ -547,7 +451,8 @@ export const MOCK_CARS: Car[] = [
       `${CLOUDINARY_BASE_URL}images/citroen-jumper/8`,
       `${CLOUDINARY_BASE_URL}images/citroen-jumper/9`,
     ],
-    description: 'Citroën Jumper 2021 L1H1 2.2 BlueHDi 140 CV en Gavà (Barcelona). Furgoneta de 3 plazas con 131.000 km y etiqueta C (Verde). Precio al contado: 15.900 € (IVA incluido) | Precio financiado: 15.700 €. Financiación al 100% sin entrada. Muy cuidada, con revisión recién hecha. Equipada con cámara de marcha atrás, bola de remolque, barras de techo, control de crucero, volante multifunción y Bluetooth. Ideal para uso profesional o comercial.'
+    description: 'Citroën Jumper 2021 L1H1 2.2 BlueHDi 140 CV en Gavà (Barcelona). Furgoneta de 3 plazas con 131.000 km y etiqueta C (Verde). Precio al contado: 15.900 € (IVA incluido) | Precio financiado: 15.700 €. Financiación al 100% sin entrada. Muy cuidada, con revisión recién hecha. Equipada con cámara de marcha atrás, bola de remolque, barras de techo, control de crucero, volante multifunción y Bluetooth. Ideal para uso profesional o comercial.',
+    isSold: true
   },
   {
     id: '24',
@@ -649,54 +554,6 @@ export const MOCK_CARS: Car[] = [
       `${CLOUDINARY_BASE_URL}images/audi-Q5/10`,
     ],
     description: 'Audi Q5 (primera generación) con motor diésel de 177 CV y 186.000 km. Procedente de un único propietario. Se entrega con revisión recién hecha, ITV en vigor hasta 2027 y 1 año de garantía. Un SUV robusto, elegante y muy fiable en color negro.',
-    isSold: true
-  },
-  {
-    id: '28',
-    make: 'Peugeot',
-    model: '207 Automático',
-    year: 2010,
-    price: 4000,
-    km: 130000,
-    fuel: 'Gasolina',
-    transmission: 'Automática',
-    power: 120,
-    color: 'Gris',
-    bodyType: 'Compacto',
-    images: [
-      `${CLOUDINARY_BASE_URL}images/peugeot-207-2/1`,
-      `${CLOUDINARY_BASE_URL}images/peugeot-207-2/2`,
-      `${CLOUDINARY_BASE_URL}images/peugeot-207-2/3`,
-      `${CLOUDINARY_BASE_URL}images/peugeot-207-2/4`,
-      `${CLOUDINARY_BASE_URL}images/peugeot-207-2/5`,
-      `${CLOUDINARY_BASE_URL}images/peugeot-207-2/6`,
-    ],
-    description: 'Peugeot 207 automático con 120 CV en color gris y 130.000 km. Procedente de un solo propietario. Entregado con ITV y revisión recién hechas, y 1 año de garantía incluido. Un compacto cómodo, fiable y en excelente estado.'
-  },
-  {
-    id: '29',
-    make: 'Volkswagen',
-    model: 'Golf MK7',
-    year: 2020,
-    price: 0,
-    km: 116000,
-    fuel: 'Gasolina',
-    transmission: 'Manual',
-    power: 131,
-    color: 'Rojo',
-    bodyType: 'Compacto',
-    images: [
-      `${CLOUDINARY_BASE_URL}images/volkswagen-golf-MK7/1`,
-      `${CLOUDINARY_BASE_URL}images/volkswagen-golf-MK7/2`,
-      `${CLOUDINARY_BASE_URL}images/volkswagen-golf-MK7/3`,
-      `${CLOUDINARY_BASE_URL}images/volkswagen-golf-MK7/4`,
-      `${CLOUDINARY_BASE_URL}images/volkswagen-golf-MK7/5`,
-      `${CLOUDINARY_BASE_URL}images/volkswagen-golf-MK7/6`,
-      `${CLOUDINARY_BASE_URL}images/volkswagen-golf-MK7/7`,
-      `${CLOUDINARY_BASE_URL}images/volkswagen-golf-MK7/8`,
-      `${CLOUDINARY_BASE_URL}images/volkswagen-golf-MK7/9`,
-    ],
-    description: 'Volkswagen Golf MK7 del año 2020 en color rojo con motor gasolina de 131 CV y 116.000 km. Etiqueta C. Procedente de 1 solo propietario, con revisión recién hecha y 1 año de garantía incluido. Un compacto moderno, eficiente y en excelente estado.',
     isSold: true
   }
 ];
